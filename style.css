@@ -12,6 +12,18 @@ input {
   margin: 0.5rem;
 }
 
+.party-container {
+    display: flex 4 1;
+    text-align: center;
+    margin: 2rem 0 rem;
+}
+
+.party-container button {
+    margin: 1rem 0 0 0;
+    width: 8rem;
+}
+
+
 html {
   display: flex;
   margin: 0;

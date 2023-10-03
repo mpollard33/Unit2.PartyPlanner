@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Party Planner</title>
+    <title>Party Tracker</title>
     <link rel='stylesheet' href="style.css">
     <script defer src="index.js"></script>
 </head>
@@ -12,28 +12,38 @@
 <body>
     <header>
         <h1>
-            <center>Party List</center>
+            <center>Party Tracker</center>
         </h1>
     </header>
     <header>
         <h2>Add Party</h2>
     </header>
-    <form id="addParty">
+    <section class="party-container">
+        <form id="addParty">
 
-        <label>Name
-            <input type="text" id="party-name" name="Event Name" placeholder="Event Name" />
-        </label>
-        <label>Date
-            <input type="datetime-local" id="party-date" name="date" />
-        </label>
-        <label>Location
-            <input type="text" id="party-location" name="location" placeholder="Event Address" />
-        </label>
-        <label>
-            Description
-            <input type="text" id="party-description" name="description" placeholder="Event Description" />
-        </label>
-    </form>
+            <label>Name
+                <input type="text" id="party-name" name="Event Name" placeholder="Event Name" />
+            </label>
+            <label>Date
+                <input type="datetime-local" id="party-date" name="date" />
+            </label>
+            <label>Location
+                <input type="text" id="party-location" name="location" placeholder="Event Address" />
+            </label>
+            <label>
+                Description
+                <input type="text" id="party-description" name="description" placeholder="Event Description" />
+            </label>
+        </form>
+        <button>Add Event</button>
+    </section>
+    <main>
+
+        <ul id="parties">
+
+        </ul>
+
+    </main>
 </body>
 
 </html>
