@@ -45,10 +45,58 @@ function renderParties () {
     const deleteButton = document.createElement ('button');
     deleteButton.textContent = 'Delete Event';
     li.append (deleteButton);
-    deleteButton.addEventListener ('click', deleteParty (party.id));
+    deleteButton.addEventListener ('click', () => deleteParty (party.id));
 
     return li;
   });
   partyList.replaceChildren (...partyElements);
 }
- 
+
+// fetch and render parties
+async function render () {
+  await getParties ();
+  renderParties ();
+}
+
+async function createParty (name, dateTime, location, description) {
+  try {
+    const response = await fetch (API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify ({name, dateTime, location, description}),
+    });
+
+    const json = await response.json ();
+
+    console.log (`response contains: ${response}`);
+    console.log (`json contains: ${json}`);
+
+    if (json.error) {
+      throw new Error (json.message);
+    }
+
+    // re-render after modifying data
+    render ();
+  } catch (error) {
+    console.log (error);
+  }
+}
+
+// event handler from .addEventListener call
+async function addParty (event) {
+  event.preventDefault ();
+
+  await createParty (
+    addPartyForm.name.value,
+    addPartyForm.dateTime.value,
+    addPartyForm.location.value,
+    addPartyForm.description.value
+  );
+
+  // clear input fields afterwards
+  addPartyForm.name.value = '';
+  addPartyForm.dateTime.value = '';
+  addPartyForm.location.value = '';
+  addPartyForm.description.value = '';
+}
+;

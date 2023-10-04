@@ -22,24 +22,27 @@
         <form id="addParty">
 
             <label>Name
-                <input type="text" id="party-name" name="Event Name" placeholder="Event Name" />
+                <input type="text" name="name" placeholder="Event Name" />
             </label>
             <label>Date
-                <input type="datetime-local" id="party-date" name="date" />
+                <input type="datetime-local" name="date" />
             </label>
             <label>Location
-                <input type="text" id="party-location" name="location" placeholder="Event Address" />
+                <input type="text" name="location" placeholder="Event Address" />
             </label>
             <label>
                 Description
-                <input type="text" id="party-description" name="description" placeholder="Event Description" />
+                <input type="text" name="description" placeholder="Event Description" />
             </label>
+            <button type="submit" id="add-button">Add Event</button>
         </form>
-        <button>Add Event</button>
     </section>
     <main>
-
+        <header>
+            <h2>Party List</h2>
+        </header>
         <ul id="parties">
+            <li>Sample Party</li>
 
         </ul>
 
